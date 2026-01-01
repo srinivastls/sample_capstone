@@ -11,7 +11,7 @@ resource "aws_ecs_task_definition" "task" {
   container_definitions = jsonencode([
   {
     name  = "app"
-    image = "tiangolo/uwsgi-nginx-flask:python3.9"
+    image = "${aws_ecr_repository.repo.repository_url}:latest"
 
     portMappings = [
       {
